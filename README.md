@@ -2,6 +2,10 @@
 
 This is a very simple javascript/ajax class for reading in .xml TextureAtlas files and being able to use the name to render using HTML5 canvas.
 
+
+On your webserver in the root directory, put your `index.html`, your `sheet.xml` and your `sheet.png`.
+In the `index.html` make sure to include a `<canvas>` tag element and the `spritesheet.js` script. Then add in the following javascript:
+
 ## Simple Example
 ```
 var spritesheet = new Spritesheet("sheet.xml");
