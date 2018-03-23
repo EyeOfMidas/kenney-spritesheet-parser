@@ -1,8 +1,8 @@
-#Kenney Spritesheet Parser
+# Kenney Spritesheet Parser
 
 This is a very simple javascript/ajax class for reading in .xml TextureAtlas files and being able to use the name to render using HTML5 canvas.
 
-##Simple Example
+## Simple Example
 ```
 var spritesheet = new Spritesheet("sheet.xml");
 spritesheet.load(function(){
@@ -14,7 +14,7 @@ spritesheet.load(function(){
 });
 ```
 
-##Example with Transforms
+## Example with Transforms
 ```
 var spritesheet = new Spritesheet("sheet.xml");
 spritesheet.load(function(){
