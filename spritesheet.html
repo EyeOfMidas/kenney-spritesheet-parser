@@ -1,0 +1,82 @@
+<style type="text/css">
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        margin-top: 18px;
+    }
+
+    #sprite-name {
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        text-align: center;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+</style>
+<canvas></canvas>
+<span id="sprite-name"></span>
+<script src="./SpriteAtlas.js"></script>
+<script>
+    function parseArgs() {
+        let queryParams = location.search.split("?")[1];
+        let urlArgs = {};
+        queryParams.split("&").forEach((keyValue) => {
+            let dataSplit = keyValue.split("=");
+            urlArgs[dataSplit[0]] = decodeURI(dataSplit[1]);
+        });
+        return urlArgs;
+    }
+    let canvas;
+    let context;
+
+    let hoveredSprite;
+
+    document.addEventListener("DOMContentLoaded", () => {
+        canvas = document.getElementsByTagName("canvas")[0];
+        canvas.addEventListener("mousemove", (event) => {
+            hoveredSprite = Object.values(spriteAtlas.atlas).find((sprite) => {
+                return event.offsetX > sprite.x && event.offsetX < sprite.x + sprite.width &&
+                    event.offsetY > sprite.y && event.offsetY < sprite.y + sprite.height;
+            });
+        });
+        let args = parseArgs();
+
+        //**************** Example Initialization ***************//
+        spriteAtlas = new SpriteAtlas(args.path, args.file);
+        spriteAtlas.load().then(() => {
+            animate();
+        });
+    });
+    function animate() {
+        canvas.width = spriteAtlas.spritesheetImage.width;
+        canvas.height = spriteAtlas.spritesheetImage.height;
+
+        context = canvas.getContext("2d");
+        canvas.width = canvas.width;
+
+        context.font = "30px Arial";
+        context.fillStyle = "#000000";
+        context.textAlign = "center";
+        context.drawImage(spriteAtlas.spritesheetImage, 0, 0);
+
+        context.strokeStyle = "#22FF22";
+        context.lineWidth = 4;
+        if (!!hoveredSprite) {
+            context.beginPath();
+            context.rect(hoveredSprite.x, hoveredSprite.y, hoveredSprite.width, hoveredSprite.height);
+            context.stroke();
+            document.getElementById("sprite-name").innerHTML = hoveredSprite.name;
+            context.font = "10px Arial";
+            context.textAlign = "right";
+            context.fillText(`x:${hoveredSprite.x}, y:${hoveredSprite.y}, w:${hoveredSprite.width}, h:${hoveredSprite.height}`, hoveredSprite.x + hoveredSprite.width, hoveredSprite.y + hoveredSprite.height);
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+
+</script>
