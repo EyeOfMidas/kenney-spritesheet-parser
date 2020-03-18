@@ -20,6 +20,8 @@ Your url should look like this:
 
 It is assumed the parameters are urlencoded (so things like spaces should be `%20` instead).
 
+[You can try out the example here!](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet.html)
+
 ## Simple Example
 ```
 let spriteAtlas = new SpriteAtlas("assets", "sprites.xml");
