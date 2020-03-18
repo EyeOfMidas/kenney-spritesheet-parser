@@ -25,7 +25,7 @@ It is assumed the parameters are urlencoded (so things like spaces should be `%2
 
 [You can try out the example here!](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet.html?path=assets&file=sprites.xml)
 
-![A screenshot of the spritesheet viewer showing the space shooter redux spritesheet](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet_example.png)
+![A screenshot of the spritesheet viewer showing the space shooter redux spritesheet](spritesheet_example.png)
 
 ## Simple Example
 ```
