@@ -8,6 +8,9 @@ In the `index.html` make sure to include a `<canvas>` tag element and the `Sprit
 I included assets from [Kenney.nl - Space Shooter Redux](https://kenney.nl/assets/space-shooter-redux) to provide an example. If you use these assets, please consider [donating](https://kenney.itch.io/kenney-donation) to help support his amazing efforts.
 
 ## Spritesheet Viewer
+
+[You can try out the example here!](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet.html?path=assets&file=sprites.xml)
+
 You can use the `SpriteAtlas.js` class and the `spritesheet.html` page to get the names of the sprites in a generated sheet.
 
 Put your desired spritesheet and xml file somewhere within a directory accessible to the `spritesheet.html` page. Visit the `spritesheet.html` and in the url, pass in the following parameters:
@@ -20,7 +23,9 @@ Your url should look like this:
 
 It is assumed the parameters are urlencoded (so things like spaces should be `%20` instead).
 
-[You can try out the example here!](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet.html)
+[You can try out the example here!](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet.html?path=assets&file=sprites.xml)
+
+![A screenshot of the spritesheet viewer showing the space shooter redux spritesheet](https://eyeofmidas.github.io/kenney-spritesheet-parser/spritesheet_example.png)
 
 ## Simple Example
 ```
