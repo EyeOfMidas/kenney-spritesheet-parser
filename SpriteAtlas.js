@@ -2,7 +2,7 @@ class SpriteAtlas {
     constructor(assetsPath, xmlFilename) {
         this.assetsPath = assetsPath;
         this.xmlFilename = xmlFilename;
-        this.xmlPath = `./${assetsPath}/${xmlFilename}`;
+        this.xmlPath = `${assetsPath}/${xmlFilename}`;
         this.atlas = {};
         this.xmlData = {};
         this.spritesheetImage = new Image();
@@ -30,7 +30,7 @@ class SpriteAtlas {
         this.xmlData = source;
         var textureAtlas = source.getElementsByTagName("TextureAtlas")[0];
         this.populateAtlas(source);
-        var sheetsrc = `./${this.assetsPath}/${textureAtlas.getAttribute("imagePath")}`;
+        var sheetsrc = `${this.assetsPath}/${textureAtlas.getAttribute("imagePath")}`;
         if (this.cacheBusting) {
             sheetsrc += "?v=" + new Date().getTime();
         }
